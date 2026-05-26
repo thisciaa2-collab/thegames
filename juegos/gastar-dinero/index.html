@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Gastos Gastar Dinero</title>
+    
+    <!-- Favicon Global (Sube dos niveles a la raíz) -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../../home.html" class="btn-volver">⬅ Volver al Inicio</a>
+
+    <div class="contenedor-gastos">
+        <h1>Simulador Millonario</h1>
+        <p>Gasta dinero sin pensar en las consecuencias futuras</p>
+        <div class="marcador-dinero" id="marcadorBanco">$100,000,000</div>
+
+        <div class="lista-compras">
+            <button class="btn-gastar" onclick="comprarObjeto(50000)">Comprar Auto Deportivo (-$50,000)</button>
+            <button class="btn-gastar" onclick="comprarObjeto(12000000)">Comprar Mansión Privada (-$12,000,000)</button>
+            <button class="btn-gastar" onclick="comprarObjeto(85000000)">Comprar Isla Desierta (-$85,000,000)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
