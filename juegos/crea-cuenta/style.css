@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: 1px solid #45f3ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    z-index: 200;
+}
+
+.btn-volver:hover {
+    background-color: #45f3ff;
+    color: #000;
+}
+
+/* Contenedor del Formulario */
+.contenedor-registro {
+    background-color: #121824;
+    border: 2px solid #1f2833;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Barra de progreso */
+.Progreso-barra {
+    background-color: #1a2233;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progreso-llenado {
+    background: linear-gradient(to right, #45f3ff, #2ecc71);
+    height: 100%;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.texto-progreso {
+    font-size: 0.8rem;
+    color: #8a99ad;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.header-registro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-registro h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.header-registro p {
+    color: #8a99ad;
+    font-size: 0.9rem;
+}
+
+/* Elementos del Formulario */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.campo-grupo input[type="text"],
+.campo-grupo input[type="password"],
+.campo-grupo input[type="number"] {
+    background-color: #0b0c10;
+    border: 1px solid #252e3d;
+    padding: 12px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.campo-grupo input:focus {
+    border-color: #45f3ff;
+}
+
+.requisitos-lista {
+    background-color: #0b0c10;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #8a99ad;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.requisitos-lista li.cumplido {
+    color: #2ecc71;
+}
+
+/* Área de Captcha Dinámico */
+.zona-captcha {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.cuadro-captcha {
+    background-color: #1a2233;
+    border: 2px solid #252e3d;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    user-select: none;
+    transition: border-color 0.1s, transform 0.1s;
+}
+
+.cuadro-captcha.seleccionado {
+    border-color: #45f3ff;
+    background-color: rgba(69, 243, 255, 0.1);
+    transform: scale(0.95);
+}
+
+/* Contrato de términos gigantesco */
+.caja-terminos {
+    background-color: #0b0c10;
+    border: 1px solid #252e3d;
+    height: 150px;
+    overflow-y: scroll;
+    padding: 12px;
+    font-size: 0.8rem;
+    color: #718096;
+    line-height: 1.5;
+    border-radius: 6px;
+}
+
+/* Botón Siguiente */
+.btn-siguiente {
+    width: 100%;
+    background-color: #45f3ff;
+    color: #000;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-siguiente:hover {
+    background-color: #66fcf1;
+}
+
+.btn-siguiente:active {
+    transform: scale(0.98);
+}
+
+/* Feedback de error */
+.consola-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Éxito Final */
+.pantalla-exito {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pantalla-exito .icono-check {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 15px;
+}
