@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: 1px solid #45f3ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    z-index: 200;
+}
+
+.btn-volver:hover {
+    background-color: #45f3ff;
+    color: #000;
+}
+
+.header-juego {
+    text-align: center;
+    padding: 40px 20px 10px 20px;
+    background-color: #121824;
+}
+
+.header-juego h1 {
+    font-size: 2.3rem;
+    color: #fff;
+    font-weight: 900;
+    background: linear-gradient(to right, #ff3838, #f1c40f, #45f3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.barra-dinero {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: #fff;
+    font-size: 2.3rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 12px;
+    max-width: 900px;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- SECCIONES SPLIT --- */
+.layout-juego {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.seccion-tienda {
+    flex: 1.8;
+}
+
+.seccion-tienda h2, .header-bandeja h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tienda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+/* --- BANDEJA DE CORREOS --- */
+.seccion-correos {
+    flex: 1;
+    background-color: #121824;
+    border: 2px solid #1f2833;
+    border-radius: 12px;
+    padding: 20px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-bandeja {
+    border-bottom: 1px solid #1f2833;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.alerta-sospecha {
+    font-size: 0.85rem;
+    color: #ff3838;
+    font-weight: bold;
+}
+
+.barra-progreso {
+    background-color: #0b0c10;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+#progresoSospecha {
+    background-color: #ff3838;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.lista-correos {
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.correo-card {
+    background-color: #1a2233;
+    border-left: 4px solid #e74c3c;
+    padding: 12px;
+    border-radius: 4px;
+    animation: entrarCorreo 0.3s ease-out;
+}
+
+.correo-card.deuda {
+    border-left-color: #f1c40f;
+}
+
+.correo-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #8a99ad;
+    margin-bottom: 5px;
+}
+
+.correo-remitente {
+    font-weight: bold;
+    color: #ff7675;
+}
+
+.correo-card h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.correo-card p {
+    font-size: 0.85rem;
+    color: #c5c6c7;
+    line-height: 1.4;
+}
+
+/* --- TARJETAS DE PRODUCTOS --- */
+.producto-card {
+    background-color: #121824;
+    border: 2px solid #1f2833;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto-card .emoji { font-size: 2.5rem; margin-bottom: 8px; }
+.producto-card h3 { font-size: 1.05rem; color: #fff; }
+.producto-card .subtitulo { font-size: 0.75rem; color: #8a99ad; margin-bottom: 5px; }
+.producto-card .precio { color: #2ecc71; font-weight: bold; font-size: 1rem; margin-bottom: 12px; }
+
+.controles { display: flex; justify-content: space-between; gap: 8px; }
+.btn { border: none; padding: 8px; font-size: 0.85rem; font-weight: bold; border-radius: 4px; cursor: pointer; flex: 1; }
+.btn-vender { background-color: #1f2833; color: #a0a0a0; }
+.btn-vender.activo { background-color: #e74c3c; color: #fff; }
+.btn-comprar { background-color: #9b59b6; color: #fff; }
+.btn-comprar:disabled { background-color: #252e3d; color: #526175; cursor: not-allowed; }
+.cantidad { font-size: 1.1rem; color: #fff; font-weight: bold; min-width: 25px; line-height: 30px; }
+
+/* --- PANTALLA FINAL GENIAL --- */
+.pantalla-final {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b0c10;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta-final {
+    background-color: #121824;
+    border: 3px solid #ff3838;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255, 56, 56, 0.3);
+    animation: estallar 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icono-final { font-size: 4rem; margin-bottom: 15px; }
+.tarjeta-final h1 { color: #ff3838; font-size: 2rem; letter-spacing: 2px; }
+.porcentaje-final { font-size: 5rem; font-weight: 900; color: #fff; margin: 10px 0; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.tarjeta-final h2 { color: #fff; font-size: 1.4rem; margin-bottom: 15px; }
+.tarjeta-final p { color: #8a99ad; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+.btn-reiniciar { background-color: #ff3838; color: white; border: none; padding: 12px 30px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background-color 0.2s; }
+.btn-reiniciar:hover { background-color: #cf2121; }
+
+@keyframes entrarCorreo {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes estallar {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
