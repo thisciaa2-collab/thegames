@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasta tu Dinero en Juegos - Edición Correos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../../home.html" class="btn-volver" id="btnVolverHome">⬅ Volver al Inicio</a>
+
+    <div id="pantallaJuego">
+        <header class="header-juego">
+            <div class="icono-gamer">💳⚡</div>
+            <h1>Gasta tu Dinero en Juegos</h1>
+            <p>Papá prestó la tarjeta... ¡A lootear la tienda antes de que se den cuenta!</p>
+        </header>
+
+        <div class="barra-dinero" id="marcadorDinero">$1,000,000,000,000</div>
+
+        <div class="layout-juego">
+            
+            <section class="seccion-tienda">
+                <h2>Tienda de Microtransacciones</h2>
+                <main class="tienda-grid" id="tiendaGrid"></main>
+            </section>
+
+            <section class="seccion-correos">
+                <div class="header-bandeja">
+                    <h2>📬 OmniMail (3 no leídos)</h2>
+                    <div class="alerta-sospecha">
+                        <span>Nivel de Deuda/Sospecha:</span>
+                        <div class="barra-progreso"><div id="progresoSospecha" style="width: 0%;"></div></div>
+                    </div>
+                </div>
+                <div class="lista-correos" id="listaCorreos">
+                    </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="pantallaFinal" class="pantalla-final" style="display: none;">
+        <div class="tarjeta-final">
+            <div class="icono-final">🚨👮‍♂️</div>
+            <h1>GAME OVER</h1>
+            <div class="porcentaje-final">42%</div>
+            <h2>No lograste vivir sin dinero</h2>
+            <p>El FBI, Epic Games, Roblox Corp y la tienda de la esquina han rastreado tus "reembolsos automáticos". Te han embargado hasta los pensamientos por fraude fiscal masivo e insolvencia absoluta.</p>
+            <button class="btn-reiniciar" onclick="reiniciarTodo()">Reintentar en otra vida</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
