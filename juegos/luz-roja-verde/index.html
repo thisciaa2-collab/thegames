@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz Roja, Luz Verde - IA Hands</title>
+    
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../../home.html" class="btn-volver" id="btnVolver">⬅ Volver al Inicio</a>
+
+    <div class="contenedor-juego">
+        <header class="header-juego">
+            <h1>Luz Roja, Luz Verde 🤖</h1>
+            <p>Sostén tu mano frente a la cámara. Acumula 100 puntos moviéndola en <b>VERDE</b> y congélate en <b>ROJO</b>.</p>
+        </header>
+
+        <div class="semaforo luz-verde" id="semaforoVisual">LUZ VERDE</div>
+
+        <div class="marcador-puntos">Puntuación: <span id="puntosActuales">0</span> / 100</div>
+
+        <div class="zona-video">
+            <div class="cargando-ia" id="cartelCarga">Cargando Inteligencia Artificial... autoriza la cámara...</div>
+            <video id="webcam" autoplay playsinline></video>
+            <div class="estado-mano" id="feedbackMano">Mano no detectada</div>
+        </div>
+    </div>
+
+    <div id="pantallaOverlay" class="pantalla-overlay" style="display: none;">
+        <div class="tarjeta-resultado" id="tarjetaResultado">
+            <div class="icono-resultado" id="iconoResultado">💀</div>
+            <h1 id="tituloResultado">¡ELIMINADO!</h1>
+            <p id="mensajeResultado">Te moviste durante la luz roja. La IA no tiene piedad.</p>
+            <button class="btn-reiniciar" onclick="reiniciarJuego()">Intentar de Nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
