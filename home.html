@@ -3,65 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Games - Menu Principal</title>
+    <title>The Games - El Universo Arcoíris</title>
     
-    <!-- Favicon Global para la Raíz -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
-    <link rel="stylesheet" href="style.css">
+    <script>
+        // Verificación de seguridad local/Cloudflare
+        // Si el usuario no ha completado el registro o login simulado, se le redirige automáticamente
+        document.addEventListener("DOMContentLoaded", () => {
+            const usuarioRegistrado = localStorage.getItem("usuarioOmniNet"); 
+            
+            // Si quieres forzar la redirección a la pantalla de creación de cuenta/login:
+            if (!usuarioRegistrado) {
+                console.log("Redirección Cloudflare/Local: Usuario no verificado. Enviando a registro...");
+                // Cambia la ruta por la de tu pantalla de login/registro si lo deseas
+                // window.location.href = "juegos/crea-cuenta/index.html"; 
+            }
+        });
+    </script>
+
+    <style>
+        /* --- ESTILOS INYECTADOS ADICIONALES PARA LA TEMÁTICA ARCOÍRIS --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Fondo con gradiente arcoíris animado */
+            background: linear-gradient(-45deg, #ff3838, #f1c40f, #2ecc71, #00d2d3, #9b59b6, #ff7675);
+            background-size: 400% 400%;
+            animation: gradienteArcoiris 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        @keyframes gradienteArcoiris {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .contenedor-principal {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cartel de Bienvenida Psicodélico */
+        .header-plataforma {
+            text-align: center;
+            background: rgba(11, 12, 16, 0.85);
+            border: 3px solid #fff;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .header-plataforma h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0px #ff3838, 6px 6px 0px #f1c40f, 9px 9px 0px #2ecc71;
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        .bienvenida-multicolor {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #66fcf1;
+            text-transform: uppercase;
+        }
+
+        .header-plataforma p {
+            color: #c5c6c7;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Badge de estado de conexión proxy de Cloudflare */
+        .badge-cloudflare {
+            display: inline-block;
+            background-color: #f38020;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px solid #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Grid de Tarjetas Ajustado */
+        .grid-juegos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta-juego {
+            background-color: rgba(18, 24, 36, 0.92);
+            border: 2px solid #1f2833;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .tarjeta-juego:hover {
+            transform: translateY(-8px);
+            border-color: #fff;
+            box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+        }
+
+        .tarjeta-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(90deg, #ff3838, #f1c40f);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        
+        .tarjeta-badge.nuevo {
+            background: linear-gradient(90deg, #00d2d3, #9b59b6);
+            color: #fff;
+        }
+
+        .tarjeta-icono {
+            font-size: 3.5rem;
+            text-align: center;
+            padding: 30px 20px 10px 20px;
+            background: rgba(0,0,0,0.2);
+            user-select: none;
+        }
+
+        .tarjeta-contenido {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .tarjeta-contenido h2 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-contenido p {
+            color: #8a99ad;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .btn-jugar {
+            display: block;
+            text-align: center;
+            background-color: #1f2833;
+            color: #45f3ff;
+            border: 2px solid #45f3ff;
+            padding: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .tarjeta-juego:hover .btn-jugar {
+            background-color: #45f3ff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.6);
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
 </head>
 <body>
 
     <div class="contenedor-principal">
+        
         <header class="header-plataforma">
-            <h1>🎮 THE GAMES 🎮</h1>
-            <p>La colección definitiva de experimentos web absurdos y divertidos.</p>
+            <div class="bienvenida-multicolor">🌈 ¡Bienvenido al Caos de Colores! 🌈</div>
+            <h1>THE GAMES</h1>
+            <p>Estás dentro del catálogo oficial de experimentos web interactivos. Cada juego desafía una parte de tu cordura, tus reflejos o tu micrófono. ¡Disfruta del viaje psicodélico!</p>
+            <div class="badge-cloudflare">🛡️ Protegido por Cloudflare Proxy CDN</div>
         </header>
 
         <main class="grid-juegos">
-            <!-- Tarjeta Juego 1: Clicker Absurdo -->
+            
             <article class="tarjeta-juego">
                 <div class="tarjeta-badge">¡Clásico!</div>
                 <div class="tarjeta-icono">🖱️</div>
                 <div class="tarjeta-contenido">
                     <h2>Clicker Absurdo</h2>
-                    <p>Haz clic sin parar para acumular puntos inútiles y mejorar multiplicadores sin sentido.</p>
+                    <p>Haz clic sin parar para acumular puntos inútiles y comprar mejoras absurdas que no sirven para nada.</p>
                     <a href="juegos/clicker-absurdo/index.html" class="btn-jugar">JUGAR YA</a>
                 </div>
             </article>
 
-            <!-- Tarjeta Juego 2: Gastar Dinero -->
             <article class="tarjeta-juego">
                 <div class="tarjeta-badge">¡Ricos!</div>
                 <div class="tarjeta-icono">💸</div>
                 <div class="tarjeta-contenido">
                     <h2>Gastar Dinero</h2>
-                    <p>Simulador millonario. Gasta fortunas exorbitantes comprando caprichos alrededor del mundo.</p>
+                    <p>Simulador millonario. Gasta fortunas exorbitantes comprando mansiones, autos deportivos e islas enteras.</p>
                     <a href="juegos/gastar-dinero/index.html" class="btn-jugar">JUGAR YA</a>
                 </div>
             </article>
 
-            <!-- Tarjeta Juego 3: Crea tu primera cuenta -->
             <article class="tarjeta-juego">
                 <div class="tarjeta-badge nuevo">¡Frustrante!</div>
                 <div class="tarjeta-icono">📝</div>
                 <div class="tarjeta-contenido">
                     <h2>Crea tu Primera Cuenta</h2>
-                    <p>El simulador de registro definitivo. Domina contraseñas imposibles y captchas existenciales para lograr loguearte.</p>
+                    <p>El simulador de registro definitivo. Enfréntate a contraseñas imposibles y captchas con crisis existenciales.</p>
                     <a href="juegos/crea-cuenta/index.html" class="btn-jugar">CREAR CUENTA</a>
                 </div>
             </article>
 
-            <!-- Tarjeta Juego 4: Gasta en Juegos -->
             <article class="tarjeta-juego">
                 <div class="tarjeta-badge nuevo">🔥 ¡Vicioso!</div>
                 <div class="tarjeta-icono">🎮</div>
                 <div class="tarjeta-contenido">
                     <h2>Gasta en Juegos</h2>
-                    <p>Tienes 1 billón de dólares. Compra miles de millones de Robux, Pavos y Diamantes hasta romper el mercado.</p>
+                    <p>Tienes 1 billón de dólares para quemar en Robux, Pavos y Diamantes. Cuidado con el sistema de deudas y reembolsos automáticos.</p>
                     <a href="juegos/gasta-en-juegos/index.html" class="btn-jugar">IR A QUEMAR TARJETA</a>
                 </div>
             </article>
+
+            <article class="tarjeta-juego">
+                <div class="tarjeta-badge nuevo">🤖 IA Cámara</div>
+                <div class="tarjeta-icono">👁️</div>
+                <div class="tarjeta-contenido">
+                    <h2>Luz Roja, Luz Verde</h2>
+                    <p>La inteligencia artificial de Google MediaPipe rastreará tu mano mediante tu webcam. Quédate inmóvil en Luz Roja.</p>
+                    <a href="juegos/luz-roja-verde/index.html" class="btn-jugar">INICIAR CÁMARA</a>
+                </div>
+            </article>
+
+            <article class="tarjeta-juego">
+                <div class="tarjeta-badge nuevo">🎙️ Micrófono</div>
+                <div class="tarjeta-icono">🤫</div>
+                <div class="tarjeta-contenido">
+                    <h2>Silencio en el Avión</h2>
+                    <p>Activa tu micrófono. Mantén el vuelo nocturno en calma absoluta. Si haces ruido, la azafata vendrá a por ti.</p>
+                    <a href="juegos/silencio-avion/index.html" class="btn-jugar">ABORDAR VUELO</a>
+                </div>
+            </article>
+
         </main>
     </div>
 
