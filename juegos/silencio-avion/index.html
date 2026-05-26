@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silencio en el Avión Tranquilo... 🤫</title>
+    
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../../home.html" class="btn-volver" id="btnVolver">⬅ Cancelar Vuelo</a>
+
+    <div class="contenedor-vuelo">
+        <header class="header-vuelo">
+            <h1>Vuelo Nocturno OMNI-747 ✈️</h1>
+            <p>Los pasajeros están durmiendo. Por favor, mantén un silencio absoluto en la cabina.</p>
+        </header>
+
+        <div class="cabina-avion">
+            <div class="pasajeros-fila fila-izquierda">😴 😴 😴</div>
+            <div class="pasajeros-fila fila-derecha">😴 😴 😴</div>
+
+            <div class="pasillo">
+                <div class="azafata-contenedor" id="azafata">
+                    <div class="azafata-burbuja" id="burbujaTexto">Buenas noches...</div>
+                    <div class="azafata-emoji" id="azafataEmoji">👩‍✈️</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-audio">
+            <button class="btn-microfono" id="btnIniciarMicro" onclick="inicializarAudio()">🎙️ ACTIVAR MICRÓFONO Y ABORDAR</button>
+            <div class="medidor-ruido" id="contenedorMedidor" style="display: none;">
+                <label>Nivel de Ruido en Cabina:</label>
+                <div class="barra-ruido"><div id="llenadoRuido" style="width: 0%;"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantallaFinal" class="pantalla-overlay" style="display: none;">
+        <div class="tarjeta-final">
+            <div class="icono-final">🪂💨</div>
+            <h1>¡EXPULSADO EN PLENO VUELO!</h1>
+            <p id="motivoFinal">Despertaste a todo el vuelo de primera clase con tus ruidos escandalosos. La tripulación decidió que viajaras sin asiento... y sin avión.</p>
+            <button class="btn-reiniciar" onclick="reiniciarVuelo()">Intentar otro Vuelo (En Silencio)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
