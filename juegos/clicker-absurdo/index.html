@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Clicker Absurdo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Redirección correcta a home.html -->
+    <a href="../../home.html" class="btn-volver">⬅ Volver al Inicio</a>
+
+    <div class="contenedor-juego">
+        
+        <section class="zona-clicker">
+            <div class="marcador-clicks">
+                <h1 id="contadorClicks">0</h1>
+                <p>Clics Acumulados</p>
+                <div class="sub-estadisticas">
+                    <span id="contadorCPS">0 clics/seg</span> | 
+                    <span id="contadorPoder">Valor del clic: +1</span>
+                </div>
+            </div>
+
+            <div class="contenedor-boton">
+                <button id="botonPrincipal" class="btn-principal">¡PRESIONA AQUÍ!</button>
+            </div>
+
+            <div class="consola-mensajes">
+                <p id="mensajeSistema">El botón espera pacientemente tu dedo...</p>
+            </div>
+        </section>
+
+        <section class="zona-tienda">
+            <div class="seccion-tienda">
+                <h2>Aumentar Poder de Clic</h2>
+                <div class="lista-mejoras" id="tiendaManual"></div>
+            </div>
+
+            <div class="seccion-tienda">
+                <h2>Comprar Cosas Absurdas</h2>
+                <div class="lista-mejoras" id="tiendaAutomatica"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
