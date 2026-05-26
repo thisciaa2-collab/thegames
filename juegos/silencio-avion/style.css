@@ -1,0 +1,230 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #05070f;
+    color: #c5c6c7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #121824;
+    color: #66fcf1;
+    border: 1px solid #45f3ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 200;
+    transition: background-color 0.2s;
+}
+
+.btn-volver:hover {
+    background-color: #45f3ff;
+    color: #000;
+}
+
+.contenedor-vuelo {
+    background-color: #0e1320;
+    border: 2px solid #1f2833;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.header-vuelo h1 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.header-vuelo p {
+    color: #8a99ad;
+    font-size: 0.88rem;
+    margin-bottom: 25px;
+}
+
+/* --- DISEÑO DE LA CABINA DEL AVIÓN --- */
+.cabina-avion {
+    background-color: #070a12;
+    height: 350px;
+    border: 2px solid #1f2833;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.pasajeros-fila {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.8rem;
+    opacity: 0.4;
+    user-select: none;
+}
+
+/* Pasillo Central de movimiento */
+.pasillo {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #090e1a, #131c30, #090e1a);
+    border-left: 1px dashed #1f2833;
+    border-right: 1px dashed #1f2833;
+}
+
+/* Contenedor de la Azafata Dinámica */
+.azafata-contenedor {
+    position: absolute;
+    left: 50%;
+    bottom: 300px; /* Inicia bien al fondo (lejos) */
+    transform: translateX(-50%) scale(0.4); /* Escala pequeña simula lejanía */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    transition: bottom 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175), transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+}
+
+.azafata-emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+.azafata-burbuja {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    white-space: normal;
+    text-align: center;
+    width: 140px;
+}
+
+/* Flechita inferior del bocadillo de diálogo */
+.azafata-burbuja::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #fff transparent;
+    display: block;
+    width: 0;
+}
+
+/* --- INTERFAZ DE MICRÓFONO Y VOLUMEN --- */
+.btn-microfono {
+    width: 100%;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    transition: transform 0.1s;
+}
+
+.btn-microfono:active { transform: scale(0.98); }
+
+.medidor-ruido {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.medidor-ruido label {
+    font-size: 0.85rem;
+    color: #8a99ad;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.barra-ruido {
+    background-color: #070a12;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #1f2833;
+}
+
+#llenadoRuido {
+    height: 100%;
+    background: linear-gradient(to right, #2ecc71, #f1c40f, #e74c3c);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* --- OVERLAY DE EXPULSIÓN --- */
+.pantalla-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 7, 15, 0.98);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta-final {
+    background-color: #0e1320;
+    border: 3px solid #ff3838;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 56, 56, 0.2);
+}
+
+.icono-final { font-size: 4.5rem; margin-bottom: 15px; }
+.tarjeta-final h1 { color: #ff3838; font-size: 1.8rem; margin-bottom: 12px; font-weight: 900; }
+.tarjeta-final p { color: #8a99ad; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+
+.btn-reiniciar {
+    background-color: #45f3ff;
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-reiniciar:hover { background-color: #66fcf1; }
