@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1f2833;
+    color: #66fcf1;
+    border: 1px solid #45f3ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    z-index: 200;
+}
+
+.btn-volver:hover {
+    background-color: #45f3ff;
+    color: #000;
+}
+
+.contenedor-gastos {
+    background-color: #121824;
+    border: 2px solid #1f2833;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+p {
+    color: #8a99ad;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.marcador-dinero {
+    background-color: #0b0c10;
+    border: 1px solid #252e3d;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2ecc71;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.lista-compras {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-gastar {
+    width: 100%;
+    background-color: #1a2233;
+    border: 1px solid #252e3d;
+    color: #fff;
+    padding: 15px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.btn-gastar:hover:not(:disabled) {
+    background-color: #1f2833;
+    border-color: #f1c40f;
+    transform: translateX(4px);
+}
+
+.btn-gastar:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.btn-gastar:disabled {
+    background-color: #0e131f;
+    color: #4a5568;
+    border-color: #1a2233;
+    cursor: not-allowed;
+}
