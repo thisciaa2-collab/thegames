@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz For Life - Desafío Matemático ⚡</title>
+    
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../index.html" class="btn-volver" id="btnVolver">⬅ Volver al Mapa</a>
+
+    <div class="contenedor-quiz">
+        <header class="header-quiz">
+            <h1>Quiz For Life ⚡</h1>
+            <p>Demuestra tu agilidad mental. Responde estas 10 operaciones matemáticas básicas.</p>
+        </header>
+
+        <div class="barra-progreso">
+            <div id="progresoVisual" style="width: 0%;"></div>
+        </div>
+
+        <main class="zona-pregunta">
+            <div class="info-pregunta">
+                Pregunta <span id="numeroPregunta">1</span> de 10
+            </div>
+            
+            <div class="enunciado" id="enunciadoPregunta">
+                Cargando operación...
+            </div>
+
+            <div class="opciones-grid" id="contenedorOpciones">
+                </div>
+
+            <div class="caja-feedback" id="cajaFeedback" style="display: none;">
+                <span id="textoFeedback"></span>
+            </div>
+        </main>
+    </div>
+
+    <div id="overlayResultados" class="pantalla-overlay" style="display: none;">
+        <div class="tarjeta-final">
+            <div class="icono-final">📊</div>
+            <h1>RESULTADO DEL QUIZ</h1>
+            <p class="score-final">Acertaste <span id="aciertosFinal">0</span> de 10 preguntas.</p>
+            <p id="mensajeEvaluacion">Analizando tu rendimiento...</p>
+            <button class="btn-reiniciar" onclick="reiniciarQuiz()">Intentar de Nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
