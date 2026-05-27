@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street View Adivine - Geo-Expert 📍</title>
+    
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="../../home.html" class="btn-volver" id="btnVolver">⬅ Volver al Inicio</a>
+
+    <div class="contenedor-geoguessr">
+        <header class="header-mapa">
+            <h1>Street View Adivine 🗺️</h1>
+            <p>Explora la vista 360° dentro del mapa. ¿Dónde demonios estás?</p>
+        </header>
+
+        <div class="marcador-global">
+            <div class="puntos-box">Puntos: <span id="puntosActuales">0</span> / 5,000</div>
+            <div class="racha-box">Ronda: <span id="rondaActual">1</span></div>
+        </div>
+
+        <div class="contenedor-streetview">
+            <iframe 
+                id="visorStreetView" 
+                src="" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <section class="panel-adivinar">
+            <h3>¿Qué lugar es este?</h3>
+            <div class="opciones-grid" id="contenedorOpciones">
+                </div>
+            <div class="feedback-respuesta" id="feedbackRespuesta"></div>
+        </section>
+    </div>
+
+    <div id="overlayFinal" class="pantalla-overlay" style="display: none;">
+        <div class="tarjeta-final" id="tarjetaFinal">
+            <div class="icono-final" id="iconoFinal">🏆</div>
+            <h1 id="tituloFinal">¡GEÓGRAFO SUPREMO!</h1>
+            <p id="mensajeFinal">Has alcanzado los 5,000 puntos analizando vegetación, matrículas de autos, arquitectura e idiomas en los carteles. Eres imparable.</p>
+            <button class="btn-reiniciar" onclick="reiniciarJuego()">Volver a Jugar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
