@@ -15,8 +15,11 @@
 
     <div class="contenedor-geoguessr">
         <header class="header-mapa">
-            <h1>Street View Adivine 🗺️</h1>
-            <p>Explora la vista 360° dentro del mapa. ¿Dónde demonios estás?</p>
+            <div class="fila-cabecera">
+                <h1>Street View Adivine 🗺️</h1>
+                <a href="quizforlife/index.html" class="btn-quiz-directo">⚡ Jugar Quiz For Life</a>
+            </div>
+            <p>Arrastra la vista en 360°, haz zoom y analiza los detalles del entorno para descubrir en qué parte del mundo estás.</p>
         </header>
 
         <div class="marcador-global">
@@ -27,7 +30,7 @@
         <div class="contenedor-streetview">
             <iframe 
                 id="visorStreetView" 
-                src="" 
+                src="about:blank" 
                 allowfullscreen="" 
                 loading="lazy" 
                 referrerpolicy="no-referrer-when-downgrade">
@@ -35,7 +38,7 @@
         </div>
 
         <section class="panel-adivinar">
-            <h3>¿Qué lugar es este?</h3>
+            <h3>¿Qué lugar del planeta es este?</h3>
             <div class="opciones-grid" id="contenedorOpciones">
                 </div>
             <div class="feedback-respuesta" id="feedbackRespuesta"></div>
@@ -46,8 +49,8 @@
         <div class="tarjeta-final" id="tarjetaFinal">
             <div class="icono-final" id="iconoFinal">🏆</div>
             <h1 id="tituloFinal">¡GEÓGRAFO SUPREMO!</h1>
-            <p id="mensajeFinal">Has alcanzado los 5,000 puntos analizando vegetación, matrículas de autos, arquitectura e idiomas en los carteles. Eres imparable.</p>
-            <button class="btn-reiniciar" onclick="reiniciarJuego()">Volver a Jugar</button>
+            <p id="mensajeFinal">Has alcanzado los 5,000 puntos analizando el mundo. Eres imparable.</p>
+            <button class="btn-reiniciar" onclick="reiniciarJuego()">Volver a Intentar</button>
         </div>
     </div>
 
