@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #c5c6c7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #0f172a;
+    color: #45f3ff;
+    border: 1px solid #45f3ff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+    z-index: 200;
+}
+
+.btn-volver:hover {
+    background-color: #45f3ff;
+    color: #000;
+}
+
+.contenedor-quiz {
+    background-color: #1e293b;
+    border: 2px solid #334155;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.header-quiz h1 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.header-quiz p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* --- BARRA DE PROGRESO --- */
+.barra-progreso {
+    background-color: #0f172a;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid #334155;
+}
+
+#progresoVisual {
+    height: 100%;
+    background-color: #45f3ff;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* --- ÁREA DE LA PREGUNTA --- */
+.info-pregunta {
+    font-size: 0.85rem;
+    color: #38bdf8;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.enunciado {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 25px;
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+/* --- BOTONES DE OPCIONES --- */
+.opciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-opcion {
+    background-color: #1e293b;
+    border: 2px solid #475569;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-opcion:hover:not(:disabled) {
+    border-color: #45f3ff;
+    background-color: #334155;
+}
+
+.btn-opcion.correcto {
+    background-color: #2ecc71 !important;
+    border-color: #fff !important;
+}
+
+.btn-opcion.incorrecto {
+    background-color: #e74c3c !important;
+    border-color: #fff !important;
+}
+
+/* --- CAJA FEEDBACK --- */
+.caja-feedback {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    animation: aparecer 0.3s ease;
+}
+
+.caja-feedback.success { background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; border: 1px solid #2ecc71; }
+.caja-feedback.danger { background-color: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; }
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- OVERLAY DE LOGROS --- */
+.pantalla-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.98);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta-final {
+    background-color: #1e293b;
+    border: 3px solid #45f3ff;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(69, 243, 255, 0.2);
+}
+
+.icono-final { font-size: 4rem; margin-bottom: 15px; }
+.tarjeta-final h1 { color: #fff; font-size: 1.8rem; margin-bottom: 10px; font-weight: 900; }
+.score-final { font-size: 1.3rem; color: #45f3ff; font-weight: bold; margin-bottom: 15px; }
+#mensajeEvaluacion { color: #94a3b8; line-height: 1.5; margin-bottom: 30px; }
+
+.btn-reiniciar {
+    background-color: #45f3ff;
+    color: #000;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-reiniciar:hover { background-color: #66fcf1; }
